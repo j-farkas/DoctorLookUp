@@ -5,7 +5,6 @@ import $ from 'jquery';
 $("form").on("submit", function(event){
 console.log($("."+$(this).attr(`id`)+".search").val());
    let promise = doctor.getConditions($(this).attr(`id`),$("."+$(this).attr(`id`)+".search").val());
-
    promise.then(function(response) {
      let body = JSON.parse(response);
      console.log(body);
@@ -17,7 +16,6 @@ console.log($("."+$(this).attr(`id`)+".search").val());
        $("#doctors").append(`<li>${doc.profile.first_name} ${doc.profile.last_name}<ul class = ${doc.uid}></ul></li>`)
        doc.practices.forEach(function(prac){
          let newPatients = "No";
-
          if(prac.accepts_new_patients === true){
             newPatients = "Yes";
          }
