@@ -7,7 +7,6 @@ console.log($("."+$(this).attr(`id`)+".search").val());
    let promise = doctor.getDoctors($(this).attr(`id`),$("."+$(this).attr(`id`)+".search").val());
    promise.then(function(response) {
      let body = JSON.parse(response);
-     console.log(body);
      $("#doctors").empty();
      if(body.data.length === 0){
        $("#doctors").append(`<li>No Results Found</li>`)
