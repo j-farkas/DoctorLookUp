@@ -2,7 +2,7 @@ export class DoctorLookUp {
     constructor(){
       this.conditions = {};
     }
-  getConditions(key, search) {
+  getDoctors(key, search) {
     console.log(key);
     console.log(search);
     return new Promise(function(resolve, reject) {

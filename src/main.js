@@ -4,7 +4,7 @@ import $ from 'jquery';
 
 $("form").on("submit", function(event){
 console.log($("."+$(this).attr(`id`)+".search").val());
-   let promise = doctor.getConditions($(this).attr(`id`),$("."+$(this).attr(`id`)+".search").val());
+   let promise = doctor.getDoctors($(this).attr(`id`),$("."+$(this).attr(`id`)+".search").val());
    promise.then(function(response) {
      let body = JSON.parse(response);
      console.log(body);
