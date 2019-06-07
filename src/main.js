@@ -32,5 +32,3 @@ console.log($("."+$(this).attr(`id`)+".search").val());
    event.preventDefault();
 });
 let doctor = new DoctorLookUp();
-$(document).ready(function() {
-  });
