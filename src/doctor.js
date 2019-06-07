@@ -1,7 +1,4 @@
 export class DoctorLookUp {
-    constructor(){
-      this.conditions = {};
-    }
   getDoctors(key, search) {
     console.log(key);
     console.log(search);

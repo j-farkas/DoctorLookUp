@@ -23,7 +23,7 @@ console.log($("."+$(this).attr(`id`)+".search").val());
          if(prac.website != undefined){
            website = prac.website;
          }
-         $(`.${doc.uid}`).append(`${prac.phones[0].number.substr(0,3)}-${prac.phones[0].number.substr(3,3)}-${prac.phones[0].number.substr(6,4)} ${prac.visit_address.street} Accepts new Patients: ${newPatients} Website: ${website} <br></li>`)
+         $(`.${doc.uid}`).append(`Phone Number: ${prac.phones[0].number.substr(0,3)}-${prac.phones[0].number.substr(3,3)}-${prac.phones[0].number.substr(6,4)} / Address: ${prac.visit_address.street} / Accepts new Patients: ${newPatients} / Website: ${website} <br></li>`)
        })
      })
    }, function(error) {
