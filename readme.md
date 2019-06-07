@@ -6,7 +6,7 @@
 
 ## _Description_
 
-This allows people to look up doctors by name or ability to treat a given ailment
+This allows people to look up doctors by name or ability to treat a given ailment and outputs them in a list based on proximity to epicodus
 
 ## _Known Bugs_
 
