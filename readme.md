@@ -2,7 +2,7 @@
 
 #### _DoctorLookUp_
 
-#### _ Jared Farkas_
+#### _Jared Farkas_
 
 ## _Description_
 
