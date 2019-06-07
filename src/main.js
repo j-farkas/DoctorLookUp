@@ -9,6 +9,9 @@ $("#query").on("submit", function(event){
    promise.then(function(response) {
      let body = JSON.parse(response);
      console.log(body);
+     body.data.forEach(function(doc){
+       $("#doctors").append(`<li>${doc.profile.first_name} ${doc.profile.last_name} ${doc.practices[0].phones[0].number.substr(0,3)}-${doc.practices[0].phones[0].number.substr(3,3)}-${doc.practices[0].phones[0].number.substr(6,4)}</li>`)
+     })
      //doctor.conditions = body;
 //        $("#Ailment").append(`<option value = "${body.data.uid}">${body.data.name}</option>`);
    }, function(error) {
