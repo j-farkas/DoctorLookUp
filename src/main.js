@@ -27,7 +27,7 @@ console.log($("."+$(this).attr(`id`)+".search").val());
        })
      })
    }, function(error) {
-     $('.showErrors').text(`There was an error processing your request: ${error.message}`);
+     $('#doctors').append(`<li>There was an error processing your request: ${error.message}</li>`);
    });
    event.preventDefault();
 });
