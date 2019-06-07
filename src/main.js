@@ -12,7 +12,22 @@ console.log($("."+$(this).attr(`id`)+".search").val());
      $("#doctors").empty();
      body.data.forEach(function(doc){
 
-       $("#doctors").append(`<li>${doc.profile.first_name} ${doc.profile.last_name} ${doc.practices[0].phones[0].number.substr(0,3)}-${doc.practices[0].phones[0].number.substr(3,3)}-${doc.practices[0].phones[0].number.substr(6,4)}</li>`)
+       $("#doctors").append(`<li>${doc.profile.first_name} ${doc.profile.last_name}<ul class = ${doc.uid}></ul></li>`)
+
+       doc.practices.forEach(function(prac){
+         let newPatients = "No";
+
+         if(prac.accepts_new_patients === true){
+            newPatients = "Yes";
+         }
+         let website = "None";
+         if(prac.website != undefined){
+           website = prac.website;
+         }
+         $(`.${doc.uid}`).append(`${prac.phones[0].number.substr(0,3)}-${prac.phones[0].number.substr(3,3)}-${prac.phones[0].number.substr(6,4)} ${prac.visit_address.street} Accepts new Patients: ${newPatients} Website: ${website} <br></li>`)
+       })
+
+
      })
      //doctor.conditions = body;
 //        $("#Ailment").append(`<option value = "${body.data.uid}">${body.data.name}</option>`);
