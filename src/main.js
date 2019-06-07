@@ -10,10 +10,11 @@ console.log($("."+$(this).attr(`id`)+".search").val());
      let body = JSON.parse(response);
      console.log(body);
      $("#doctors").empty();
+     if(body.data.length === 0){
+       $("#doctors").append(`<li>No Results Found</li>`)
+     }
      body.data.forEach(function(doc){
-
        $("#doctors").append(`<li>${doc.profile.first_name} ${doc.profile.last_name}<ul class = ${doc.uid}></ul></li>`)
-
        doc.practices.forEach(function(prac){
          let newPatients = "No";
 
@@ -26,11 +27,7 @@ console.log($("."+$(this).attr(`id`)+".search").val());
          }
          $(`.${doc.uid}`).append(`${prac.phones[0].number.substr(0,3)}-${prac.phones[0].number.substr(3,3)}-${prac.phones[0].number.substr(6,4)} ${prac.visit_address.street} Accepts new Patients: ${newPatients} Website: ${website} <br></li>`)
        })
-
-
      })
-     //doctor.conditions = body;
-//        $("#Ailment").append(`<option value = "${body.data.uid}">${body.data.name}</option>`);
    }, function(error) {
      $('.showErrors').text(`There was an error processing your request: ${error.message}`);
    });
@@ -38,8 +35,4 @@ console.log($("."+$(this).attr(`id`)+".search").val());
 });
 let doctor = new DoctorLookUp();
 $(document).ready(function() {
-  // $('#weatherLocation').click(function() {
-  //     let city = $('#location').val();
-  //     $('#location').val("");
-
   });
