@@ -1,6 +1,7 @@
 import { DoctorLookUp} from './doctor';
 import $ from 'jquery';
 
+let doctor = new DoctorLookUp();
 
 $("form").on("submit", function(event){
 console.log($("."+$(this).attr(`id`)+".search").val());
@@ -23,23 +24,20 @@ console.log($("."+$(this).attr(`id`)+".search").val());
            website = prac.website;
          }
          $(`.${doc.uid}`).append(`Phone Number: ${prac.phones[0].number.substr(0,3)}-${prac.phones[0].number.substr(3,3)}-${prac.phones[0].number.substr(6,4)} / Address: ${prac.visit_address.street} / Accepting new Patients: ${newPatients} / Website: ${website} <br></li>`)
+
+       })
+       let catFacts = doctor.getCats();
+       let facts = "";
+       catFacts.then(function(response){
+         facts = JSON.parse(response);
+         console.log(facts);
+           $(`.${doc.uid}`).append("Doctor's favorite cat trivia: " + facts[Math.floor(Math.random() * 100)].text)
        })
      })
-     $("#doctors").append(catFacts[Math.random() * 100].text)
+
+
    }, function(error) {
      $('#doctors').append(`<li>There was an error processing your request: ${error.message}</li>`);
    });
    event.preventDefault();
 });
-let doctor = new DoctorLookUp();
-let catFacts = doctor.getCats();
-let facts = "";
-catFacts.then(function(response){
-  setTimeout(function(){
-    facts = JSON.parse(response);
-  },500)
-})
-
-setTimeout(function(){
-  console.log(facts);
-},500)
