@@ -2,10 +2,7 @@ export class DoctorLookUp {
   getDoctors(key, search, location, loc) {
     return new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
-      console.log(key);
-      console.log();
       let url = `https://api.betterdoctor.com/2016-03-01/doctors?location=${loc}&user_location=${location.lat}%2C${location.lng}&skip=0&limit=10&user_key=${process.env.exports.apiKey}&${key}=${search}`;
-      console.log(url);
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);

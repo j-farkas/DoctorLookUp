@@ -6,7 +6,7 @@
 
 ## _Description_
 
-This allows people to look up doctors by name or ability to treat a given ailment and outputs them in a list based on proximity to epicodus
+This allows people to look up doctors by name or ability to treat a given ailment and outputs them in a list based on proximity to the selected city.
 
 ## _Known Bugs_
 
@@ -18,7 +18,7 @@ Contact jaredmfarkas@gmail.com
 
 ## _Technologies Used_
 
-node.js, BetterDoctor api, javascript, html, and jquery were used.
+node.js, several APIs, javascript, html, and jquery were used.
 
 ### _License_
 

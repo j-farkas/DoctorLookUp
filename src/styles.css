@@ -17,3 +17,12 @@ p{
 #doctors{
   font-size: 24px;
 }
+
+.docname{
+  margin-left:40%;
+  font-size:48px;
+}
+
+li{
+  display:inline;
+}
