@@ -50,7 +50,7 @@ $("form").on("submit", function(event){
             kanye.then(function(response){
               let kanyeQ = JSON.parse(response);
               $(`.${doc.uid}`).append("<br>Some wise words from the doctor: " + kanyeQ.quote);
-              let origin = doctor.getNameOrigin("John","Smith");
+              let origin = doctor.getNameOrigin(doc.profile.first_name, doc.profile.last_name);
               origin.then(function(response){
                 let nameO = JSON.parse(response);
                 console.log(nameO);
