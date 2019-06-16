@@ -6,13 +6,14 @@ let doctor = new DoctorLookUp();
 $("form").on("submit", function(event){
 console.log($("."+$(this).attr(`id`)+".search").val());
 console.log($("#location option:selected").text());
-//console.log(process.env.exports.api_Key);
+let loc = $("#location").val();
+let key = $(this).attr(`id`);
+let search = $("."+$(this).attr(`id`)+".search").val();
   let locationPromise = doctor.getLocation($("#location option:selected").text());
   locationPromise.then(function(response){
     let body = JSON.parse(response);
-    console.log(body);
-  })
-   let promise = doctor.getDoctors($(this).attr(`id`),$("."+$(this).attr(`id`)+".search").val());
+    console.log(body.results[0].geometry);
+   let promise = doctor.getDoctors(key,search,body.results[0].geometry, loc);
    promise.then(function(response) {
      let body = JSON.parse(response);
      $("#doctors").empty();
@@ -58,5 +59,7 @@ console.log($("#location option:selected").text());
    }, function(error) {
      $('#doctors').append(`<li>There was an error processing your request: ${error.message}</li>`);
    });
+
+   })
    event.preventDefault();
 });
