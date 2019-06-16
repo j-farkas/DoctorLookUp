@@ -67,7 +67,7 @@ export class DoctorLookUp {
   getLocation(location) {
     return new Promise(function(resolve, reject) {
       let request = new XMLHttpRequest();
-      let url = `https://api.opencagedata.com/geocode/v1/json?q=${location}&key=1959f7476f114dbcb6f6444f2df8004d`;
+      let url = `https://api.opencagedata.com/geocode/v1/json?q=${location}&key=${process.env.exports.OTHER_API_KEY}`;
       request.onload = function() {
         if (this.status === 200) {
           resolve(request.response);
