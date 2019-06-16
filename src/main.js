@@ -34,11 +34,16 @@ console.log($("."+$(this).attr(`id`)+".search").val());
            let joke = doctor.getJokes();
            joke.then(function(response){
              let jokes = JSON.parse(response);
-             console.log(joke);
              let rand = Math.floor(Math.random() * 10);
                $(`.${doc.uid}`).append("<br>Doctor's favorite joke: " + jokes[rand].setup);
                $(`.${doc.uid}`).append("<br>" + jokes[rand].punchline);
+               let kanye = doctor.getKanye();
+               kanye.then(function(response){
+                 let kanyeQ = JSON.parse(response);
+                   $(`.${doc.uid}`).append("<br>Some wise words from the doctor: " + kanyeQ.quote);
+               })
            })
+
        })
      })
 
