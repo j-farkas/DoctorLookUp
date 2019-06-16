@@ -34,7 +34,6 @@ $("form").on("submit", function(event){
             website = prac.website;
           }
           $(`.${doc.uid}`).append(`Phone Number: (${prac.phones[0].number.substr(0,3)})-${prac.phones[0].number.substr(3,3)}-${prac.phones[0].number.substr(6,4)} / Address: ${prac.visit_address.street} / Accepting new Patients: ${newPatients} / Website: ${website} <br></li>`)
-
         })
         let catFacts = doctor.getCats();
         let facts = "";
@@ -51,6 +50,11 @@ $("form").on("submit", function(event){
             kanye.then(function(response){
               let kanyeQ = JSON.parse(response);
               $(`.${doc.uid}`).append("<br>Some wise words from the doctor: " + kanyeQ.quote);
+              let origin = doctor.getNameOrigin("John","Smith");
+              origin.then(function(response){
+                let nameO = JSON.parse(response);
+                console.log(nameO);
+              })
             })
           })
         })
