@@ -30,8 +30,15 @@ console.log($("."+$(this).attr(`id`)+".search").val());
        let facts = "";
        catFacts.then(function(response){
          facts = JSON.parse(response);
-         console.log(facts);
            $(`.${doc.uid}`).append("Doctor's favorite cat trivia: " + facts[Math.floor(Math.random() * 100)].text)
+           let joke = doctor.getJokes();
+           joke.then(function(response){
+             let jokes = JSON.parse(response);
+             console.log(joke);
+             let rand = Math.floor(Math.random() * 10);
+               $(`.${doc.uid}`).append("<br>Doctor's favorite joke: " + jokes[rand].setup);
+               $(`.${doc.uid}`).append("<br>" + jokes[rand].punchline);
+           })
        })
      })
 
