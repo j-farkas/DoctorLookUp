@@ -12,7 +12,7 @@ console.log($("."+$(this).attr(`id`)+".search").val());
        $("#doctors").append(`<li>No Results Found</li>`)
      }
      body.data.forEach(function(doc){
-       $("#doctors").append(`<li>${doc.profile.first_name} ${doc.profile.last_name}<ul class = ${doc.uid}></ul></li>`)
+       $("#doctors").append(`<li>${doc.profile.first_name} ${doc.profile.last_name}<br><p>Practices:</p><ul class = ${doc.uid}></ul></li>`)
        doc.practices.forEach(function(prac){
          let newPatients = "No";
          if(prac.accepts_new_patients === true){
