@@ -100,7 +100,7 @@ export class DoctorLookUp {
       return new Promise(function(resolve, reject) {
         let request = new XMLHttpRequest();
 
-        let url = `https://restcountries.eu/rest/v2/alpha/co`;
+        let url = `https://restcountries.eu/rest/v2/alpha/${code}`;
         request.onload = function() {
           if (this.status === 200) {
             resolve(request.response);

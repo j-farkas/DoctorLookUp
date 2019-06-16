@@ -53,7 +53,11 @@ $("form").on("submit", function(event){
               let origin = doctor.getNameOrigin(doc.profile.first_name, doc.profile.last_name);
               origin.then(function(response){
                 let nameO = JSON.parse(response);
-                console.log(nameO);
+                let origin2 = doctor.convertToFullName(nameO.countryOrigin);
+                origin2.then(function(response){
+                  let nameO2 = JSON.parse(response);
+                  $(`.${doc.uid}`).append(`<br>The name ${doc.profile.first_name} ${doc.profile.last_name} likely originated from: ${nameO2.name}`);
+                })
               })
             })
           })
