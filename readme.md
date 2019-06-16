@@ -6,7 +6,7 @@
 
 ## _Description_
 
-This allows people to look up doctors by name or ability to treat a given ailment and outputs them in a list based on proximity to the selected city.
+This allows people to look up doctors by name or ability to treat a given ailment and outputs all doctors that meet the criteria in the selected city.
 
 ## _Known Bugs_
 
@@ -22,6 +22,6 @@ node.js, several APIs, javascript, html, and jquery were used.
 
 ### _License_
 
-GPL
+MIT
 
 Copyright (c) 2019  Jared Farkas

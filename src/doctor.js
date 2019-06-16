@@ -79,7 +79,6 @@ export class DoctorLookUp {
     getNameOrigin(first, last) {
       return new Promise(function(resolve, reject) {
         let request = new XMLHttpRequest();
-
         let url = `https://v2.namsor.com/NamSorAPIv2/api2/json/origin/${first}/${last}`;
         request.onload = function() {
           if (this.status === 200) {
@@ -96,7 +95,6 @@ export class DoctorLookUp {
     convertToFullName(code) {
       return new Promise(function(resolve, reject) {
         let request = new XMLHttpRequest();
-
         let url = `https://restcountries.eu/rest/v2/alpha/${code}`;
         request.onload = function() {
           if (this.status === 200) {
