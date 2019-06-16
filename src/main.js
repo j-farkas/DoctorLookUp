@@ -5,6 +5,7 @@ let doctor = new DoctorLookUp();
 
 $("form").on("submit", function(event){
 console.log($("."+$(this).attr(`id`)+".search").val());
+console.log($("#location option:selected").text());
    let promise = doctor.getDoctors($(this).attr(`id`),$("."+$(this).attr(`id`)+".search").val());
    promise.then(function(response) {
      let body = JSON.parse(response);

@@ -5,14 +5,6 @@
         <title>Template</title>
     </head>
     <body>
-      <form id="query">
-        Search for doctor that treats a specific ailment: <input type="text" class="query search">
-        <input type="submit" value="Search">
-      </form>
-      <form id="name">
-        Search for a specific doctor by any partial name matches: <input type="text" class="name search">
-        <input type="submit" value="Search">
-      </form>
       <p> Select your location</p>
       <select id="location">
         <option value="Portland">Portland, Oregon</option>
@@ -21,7 +13,14 @@
         <option value="NewYork">New York, New York</option>
         <option value="Chicago">Chicago, Illinois</option>
       </select>
-
+      <form id="query">
+        Search for doctor that treats a specific ailment: <input type="text" class="query search">
+        <input type="submit" value="Search">
+      </form>
+      <form id="name">
+        Search for a specific doctor by any partial name matches: <input type="text" class="name search">
+        <input type="submit" value="Search">
+      </form>
       <ul id="doctors">
       </ul>
     </body>
