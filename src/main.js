@@ -6,6 +6,12 @@ let doctor = new DoctorLookUp();
 $("form").on("submit", function(event){
 console.log($("."+$(this).attr(`id`)+".search").val());
 console.log($("#location option:selected").text());
+//console.log(process.env.exports.api_Key);
+  let locationPromise = doctor.getLocation($("#location option:selected").text());
+  locationPromise.then(function(response){
+    let body = JSON.parse(response);
+    console.log(body);
+  })
    let promise = doctor.getDoctors($(this).attr(`id`),$("."+$(this).attr(`id`)+".search").val());
    promise.then(function(response) {
      let body = JSON.parse(response);
